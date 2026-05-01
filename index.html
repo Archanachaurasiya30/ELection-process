@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Election Education Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fas fa-vote-yea"></i>
+                <h2>Election<br><span>EduAssist</span></h2>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-target="dashboard"><i class="fas fa-home"></i> Dashboard</li>
+                <li data-target="timeline"><i class="fas fa-stream"></i> Election Timeline</li>
+                <li data-target="flashcards"><i class="fas fa-clone"></i> Flashcards</li>
+                <li data-target="quiz"><i class="fas fa-question-circle"></i> Knowledge Quiz</li>
+                <li data-target="chat"><i class="fas fa-comments"></i> AI Assistant</li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header -->
+            <header>
+                <div class="greeting">
+                    <h1>Welcome to Election EduAssist!</h1>
+                    <p>Learn about the largest democratic exercise in the world.</p>
+                </div>
+            </header>
+
+            <!-- Views -->
+            <div id="views">
+                <!-- Dashboard View -->
+                <section id="dashboard" class="view active-view">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-users icon-blue"></i>
+                            <h3>900M+</h3>
+                            <p>Eligible Voters</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-building icon-orange"></i>
+                            <h3>543</h3>
+                            <p>Lok Sabha Seats</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-box icon-green"></i>
+                            <h3>1M+</h3>
+                            <p>Polling Stations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h2>Structure of Indian Democracy</h2>
+                        <div class="cards-wrapper">
+                            <div class="info-card">
+                                <h3>Lok Sabha (Lower House)</h3>
+                                <p>Members are directly elected by the public. Elections are held every 5 years to choose the Prime Minister.</p>
+                            </div>
+                            <div class="info-card">
+                                <h3>Rajya Sabha (Upper House)</h3>
+                                <p>Members are elected by state legislative assemblies. It's a permanent body with members retiring every 2 years.</p>
+                            </div>
+                            <div class="info-card">
+                                <h3>State Legislative Assemblies</h3>
+                                <p>Vidhan Sabha elections choose the Chief Minister and form the state government.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Timeline View -->
+                <section id="timeline" class="view">
+                    <h2>The Election Process</h2>
+                    <p class="subtitle">Step-by-step timeline of how elections are conducted by the ECI.</p>
+                    <div class="timeline-container" id="timeline-container">
+                        <!-- Populated by JS -->
+                    </div>
+                </section>
+
+                <!-- Flashcards View -->
+                <section id="flashcards" class="view">
+                    <h2>Electoral Terminology</h2>
+                    <p class="subtitle">Click on a card to reveal its meaning.</p>
+                    <div class="flashcards-grid" id="flashcards-container">
+                        <!-- Populated by JS -->
+                    </div>
+                </section>
+
+                <!-- Quiz View -->
+                <section id="quiz" class="view">
+                    <h2>Knowledge Quiz</h2>
+                    <div class="quiz-container">
+                        <div id="quiz-setup">
+                            <p>Test your knowledge about the Indian Election System!</p>
+                            <button id="start-quiz-btn" class="primary-btn">Start Quiz</button>
+                        </div>
+                        <div id="quiz-active" class="hidden">
+                            <div class="quiz-progress">
+                                <span id="question-counter">Question 1/5</span>
+                                <div class="progress-bar-container">
+                                    <div id="quiz-progress-bar" class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <h3 id="question-text"></h3>
+                            <div class="options-container" id="options-container">
+                                <!-- Populated by JS -->
+                            </div>
+                            <div id="quiz-feedback" class="feedback hidden"></div>
+                            <button id="next-question-btn" class="primary-btn hidden">Next Question</button>
+                        </div>
+                        <div id="quiz-results" class="hidden">
+                            <h3>Quiz Complete!</h3>
+                            <div class="score-display">
+                                <span id="final-score">0</span>/<span>5</span>
+                            </div>
+                            <p id="score-message"></p>
+                            <button id="restart-quiz-btn" class="primary-btn">Try Again</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chat View -->
+                <section id="chat" class="view">
+                    <h2>AI Election Assistant</h2>
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message bot-message">
+                                <div class="avatar"><i class="fas fa-robot"></i></div>
+                                <div class="bubble">Namaste! I am your AI Election Assistant. Ask me anything about the Indian election process, ECI guidelines, or voting steps.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-suggestions">
+                            <button class="suggestion-chip">How do I register to vote?</button>
+                            <button class="suggestion-chip">What is Model Code of Conduct?</button>
+                            <button class="suggestion-chip">How are EVMs secure?</button>
+                        </div>
+                        
+                        <div class="chat-input-area">
+                            <input type="text" id="chat-input" placeholder="Type your question here...">
+                            <button id="send-chat-btn"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
